@@ -58,7 +58,19 @@ function exHanoi_2(A, B, C, D, n) {
 }
 
 function exhanoi_3(A, B, C, n) {
-   
+    
+    if(n==1){
+        moves.push([A,C]);
+        moves.push([B,A]);
+        moves.push([B,C]);
+        moves.push([A,C]);
+    }
+    else{
+       exhanoi_3(A,B,C,n-1);
+       hanoi(C,A,B,3*n-3);
+       moves.push([A,C]);
+       hanoi(B,A,C,3*n-1);
+    }
 }
 
 function moveDisks(from, to){
